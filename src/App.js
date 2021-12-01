@@ -1,25 +1,41 @@
+import React, { Component } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
+import { Outlet, Link } from 'react-router-dom';
+import Home from './components/orders.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <nav class="navTop">
+            <ul>
+              <li>
+                <Link to="/orders">Orders</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link class="btn-" to="/contact">Contact us</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <Outlet />
+        </main>
+        <footer>
+          <p>&copy; Copyright 2018</p>
+        </footer>
+      </div>
+    );
+  }
 }
 
 export default App;
